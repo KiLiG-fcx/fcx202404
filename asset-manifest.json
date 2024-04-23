@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/fcxgame04/static/css/main.45116693.css",
+    "main.js": "/fcxgame04/static/js/main.2f84faa1.js",
+    "static/js/453.7ac95050.chunk.js": "/fcxgame04/static/js/453.7ac95050.chunk.js",
+    "static/media/logo.svg": "/fcxgame04/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/fcxgame04/index.html",
+    "main.45116693.css.map": "/fcxgame04/static/css/main.45116693.css.map",
+    "main.2f84faa1.js.map": "/fcxgame04/static/js/main.2f84faa1.js.map",
+    "453.7ac95050.chunk.js.map": "/fcxgame04/static/js/453.7ac95050.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.45116693.css",
+    "static/js/main.2f84faa1.js"
+  ]
+}

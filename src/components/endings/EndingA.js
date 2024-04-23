@@ -13,7 +13,7 @@ const EndingA = () => {
       </div>
       <button
       onClick={()=>{
-        navigate("/start");
+        navigate("/");
       }}
       >重新开始</button>
     </div>

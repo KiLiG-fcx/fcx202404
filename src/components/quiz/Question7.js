@@ -118,7 +118,7 @@ const Question7 = ({ item }) => {
            rounded mt-6`}
           onClick={() => {
             if (chosen === true) {
-              nextPage();
+              nextPage(favor,gloom);
             }
           }}
         >

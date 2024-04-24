@@ -62,7 +62,7 @@ const Question3 = ({ item }) => {
             onClick={() => {
               updateData(prevFavor, prevGloom + 10);
               setAnswer(1);
-              console.log(favor, gloom);
+              //console.log(favor, gloom);
             }}
           >
             拎着后颈肉随意丢到椅子上，跟她说饿了自己吃泡面。
@@ -76,7 +76,6 @@ const Question3 = ({ item }) => {
             onClick={() => {
               updateData(prevFavor + 20, prevGloom-10);
               setAnswer(2);
-              console.log(favor, gloom);
             }}
           >
             给心心梳毛洗脸，给她准备了一整天的食物。（这里假设玩家的厨艺十分高超）

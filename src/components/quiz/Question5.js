@@ -53,7 +53,6 @@ const Question5 = ({ item }) => {
             onClick={() => {
               updateData(prevFavor + 50, prevGloom - 20);
               setAnswer(1);
-              console.log(favor, gloom);
             }}
           >
             把做好的晚饭放在心心面前引诱一下，并且故意自己吃得很香。
@@ -67,7 +66,6 @@ const Question5 = ({ item }) => {
             onClick={() => {
               updateData(prevFavor -20, prevGloom+20);
               setAnswer(2);
-              console.log(favor, gloom);
             }}
           >
             冷脸把心心揪了起来，说不许再恶作剧了，不然把你卖了，让你没日没夜地加班还不给钱。

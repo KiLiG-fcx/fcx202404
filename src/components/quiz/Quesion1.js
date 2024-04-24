@@ -61,7 +61,6 @@ const Question1 = () => {
               updateData(20, -10);
               setEnd(false);
               setAnswer(2);
-              //console.log(favor, gloom);
             }}
           >
             感觉好可爱，小心地抱回家。
@@ -74,7 +73,6 @@ const Question1 = () => {
               updateData(10, 10);
               setEnd(false);
               setAnswer(3);
-              //console.log(favor, gloom);
             }}
           >
             要不先不管了，看看第二天会发生什么吧……
@@ -97,7 +95,6 @@ const Question1 = () => {
            hover:bg-pink-300 text-black font-bold py-2 px-4 
            rounded mt-6`}
           onClick={() => {
-            //console.log(favor,gloom);
             if (end === true) {
               toEndA();
             } else if (chosen === true) {

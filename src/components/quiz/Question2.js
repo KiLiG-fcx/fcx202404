@@ -73,7 +73,6 @@ const Question2 = ({ item }) => {
             onClick={() => {
               updateData(prevFavor + 10, prevGloom);
               setAnswer(2);
-              console.log(favor, gloom);
             }}
           >
             昨天吃剩的半块饼干

@@ -70,7 +70,6 @@ const Question6 = ({ item }) => {
             onClick={() => {
               updateData(prevFavor + 60, prevGloom-20);
               setAnswer(2);
-              console.log(favor, gloom);
               setEnd(false);
             }}
           >

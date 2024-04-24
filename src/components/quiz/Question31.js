@@ -61,7 +61,6 @@ const Question31 = ({ item }) => {
               updateData(prevFavor + 50, prevGloom - 20);
               setAnswer(1);
               setEnd(false);
-              console.log(favor, gloom);
             }}
           >
             不管怎么说先把心心找出来吧，犯不着跟傻子生气。

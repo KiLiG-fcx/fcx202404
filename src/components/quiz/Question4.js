@@ -57,7 +57,6 @@ const Question4 = ({ item }) => {
               updateData(prevFavor + 50, prevGloom - 20);
               setAnswer(1);
               setEnd(false);
-              console.log(favor, gloom);
             }}
           >
             带上心心和好吃的一起出门吧，她看起来好想出去玩。

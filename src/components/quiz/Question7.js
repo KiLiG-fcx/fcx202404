@@ -65,7 +65,6 @@ const Question7 = ({ item }) => {
             onClick={() => {
               updateData(prevFavor - 50, prevGloom + 50);
               setAnswer(1);
-              console.log(favor, gloom);
             }}
           >
             可能是在做梦吧，不管她了
@@ -79,7 +78,6 @@ const Question7 = ({ item }) => {
             onClick={() => {
               updateData(prevFavor + 50, prevGloom - 20);
               setAnswer(2);
-              console.log(favor, gloom);
             }}
           >
             我没受过这种委屈，于是坐在地上哭了起来。

@@ -6,7 +6,11 @@ module.exports = {
     "./node_modules/tw-elements/dist/js/**/*.js",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily:{
+        'noto-sans-sc': ['Noto Serif SC', 'sans-serif'],
+      }
+    },
   },
   plugins: [],
 }

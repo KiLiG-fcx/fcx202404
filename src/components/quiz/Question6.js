@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
-const Question2 = ({ item }) => {
+const Question6 = ({ item }) => {
   const location = useLocation();
   const prevFavor = location.state.favor;
   const prevGloom = location.state.gloom;
@@ -10,6 +10,7 @@ const Question2 = ({ item }) => {
   const [gloom, setGloom] = useState(prevGloom);
   const [chosen, setChosen] = useState(false);
   const [answer, setAnswer] = useState(0);
+  const [end, setEnd] = useState(false);
 
   const navigate = useNavigate();
 
@@ -23,31 +24,26 @@ const Question2 = ({ item }) => {
 
   const nextPage = () => {
     const params = { favor: favor, gloom: gloom };
-    navigate("/day3", { state: params });
+    navigate("/day7", { state: params });
+  };
+
+  const toEndD = () => {
+    navigate("/endD"); //跳转结局，不传参
   };
 
   return (
     <div className="flex justify-around h-full mt-10 font-noto-sans-sc">
       <div className="flex flex-col bg-pink-50 rounded-lg shadow-md p-6 w-full md:w-3/5 lg:w-9/10 lg:h-70vh">
-        <div className="text-3xl font-bold">Day 2</div>
+        <div className="text-3xl font-bold">Day 6</div>
         <br />
         <div>
-          确实不是什么危险的东西。
+          今天路过商店，想给心心买点东西。
           <br />
-          至少看起来是这样的。
+          并不是什么特别的节日，商家也没有任何的打折促销。
           <br />
-          只知道这个神秘生物的名字是心心，没有多余信息了。
+          几天相处下来，好像有点清楚她会喜欢什么了。
           <br />
-          太缺德了，在别人门口随便丢东西还不给饲养说明书。
-          <br />
-          虽然嘴上这样碎碎念，但还是把睡着的心心放在床上了。
-          <br />
-          <br />
-          心心似乎被灯光晃醒了，张着嘴在说什么，凑近了才知道她在小声说饿了。
-          <br />
-          什么好人晚上十一点要吃东西啊。（一边吃零食一边打字。）
-          <br />
-          要找点什么喂食呢？
+          要带点什么回家呢？
         </div>
         <div className="flex flex-col mt-10">
           {/* 选项 */}
@@ -58,11 +54,12 @@ const Question2 = ({ item }) => {
             text-gray-800 font-semibold py-2 px-4 border
             border-gray-400 rounded shadow mr-10`}
             onClick={() => {
-              updateData(prevFavor + 20, prevGloom - 10);
+              updateData(prevFavor + 20, prevGloom - 20);
               setAnswer(1);
+              setEnd(false);
             }}
           >
-            草莓蛋糕
+            python编程从入门到入土
           </button>
           <button
             className={`${
@@ -71,12 +68,13 @@ const Question2 = ({ item }) => {
             text-gray-800 font-semibold py-2 px-4 border
             border-gray-400 rounded shadow mr-10 mt-2`}
             onClick={() => {
-              updateData(prevFavor + 10, prevGloom);
+              updateData(prevFavor + 60, prevGloom-20);
               setAnswer(2);
               console.log(favor, gloom);
+              setEnd(false);
             }}
           >
-            昨天吃剩的半块饼干
+            大型分布式网站架构设计与实践
           </button>
           <button
             className={`${
@@ -85,11 +83,12 @@ const Question2 = ({ item }) => {
             text-gray-800 font-semibold py-2 px-4 border
             border-gray-400 rounded shadow mr-10 mt-2`}
             onClick={() => {
-              updateData(prevFavor - 20, prevGloom + 10);
+              updateData(prevFavor + 20, prevGloom -20);
               setAnswer(3);
+              setEnd(false);
             }}
           >
-            TypeC充电线
+            超大jelly cat玩偶
           </button>
           <button
             className={`${
@@ -100,9 +99,23 @@ const Question2 = ({ item }) => {
             onClick={() => {
               updateData(prevFavor, prevGloom + 100);
               setAnswer(4);
+              setEnd(false);
             }}
           >
-            反正这玩意儿看起来傻得很，于是把自己的手指伸了进去。
+            不正经的电动小玩具
+          </button>
+          <button
+            className={`${
+              answer === 5 ? "bg-pink-300" : "bg-white"
+            }  hover:bg-gray-100
+            text-gray-800 font-semibold py-2 px-4 border
+            border-gray-400 rounded shadow mr-10 mt-2`}
+            onClick={() => {
+              setAnswer(5);
+              setEnd(true);
+            }}
+          >
+           没钱，不买。我自己就是她的礼物。
           </button>
         </div>
         <button
@@ -111,7 +124,9 @@ const Question2 = ({ item }) => {
            hover:bg-pink-300 text-black font-bold py-2 px-4 
            rounded mt-6`}
           onClick={() => {
-            if (chosen === true) {
+            if (end === true) {
+              toEndD();
+            } else if (chosen === true) {
               nextPage();
             }
           }}
@@ -123,4 +138,4 @@ const Question2 = ({ item }) => {
   );
 };
 
-export default Question2;
+export default Question6;

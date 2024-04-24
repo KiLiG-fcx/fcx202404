@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
-const Question2 = ({ item }) => {
+const Question4 = ({ item }) => {
   const location = useLocation();
   const prevFavor = location.state.favor;
   const prevGloom = location.state.gloom;
@@ -10,6 +10,7 @@ const Question2 = ({ item }) => {
   const [gloom, setGloom] = useState(prevGloom);
   const [chosen, setChosen] = useState(false);
   const [answer, setAnswer] = useState(0);
+  const [end, setEnd] = useState(false);
 
   const navigate = useNavigate();
 
@@ -23,31 +24,26 @@ const Question2 = ({ item }) => {
 
   const nextPage = () => {
     const params = { favor: favor, gloom: gloom };
-    navigate("/day3", { state: params });
+    navigate("/day5", { state: params });
+  };
+
+  const toEndC = () => {
+    navigate("/endC"); //跳转结局，不传参
   };
 
   return (
     <div className="flex justify-around h-full mt-10 font-noto-sans-sc">
       <div className="flex flex-col bg-pink-50 rounded-lg shadow-md p-6 w-full md:w-3/5 lg:w-9/10 lg:h-70vh">
-        <div className="text-3xl font-bold">Day 2</div>
+        <div className="text-3xl font-bold">Day 4</div>
         <br />
         <div>
-          确实不是什么危险的东西。
+          今天是周末。
           <br />
-          至少看起来是这样的。
+          工作了一个星期就是为了等着这一刻哈哈我真是一秒也忍不下去了再不放假我就要开始阴暗爬行了！
           <br />
-          只知道这个神秘生物的名字是心心，没有多余信息了。
+          心心说这几天一直都待在家里，想出去看看。
           <br />
-          太缺德了，在别人门口随便丢东西还不给饲养说明书。
-          <br />
-          虽然嘴上这样碎碎念，但还是把睡着的心心放在床上了。
-          <br />
-          <br />
-          心心似乎被灯光晃醒了，张着嘴在说什么，凑近了才知道她在小声说饿了。
-          <br />
-          什么好人晚上十一点要吃东西啊。（一边吃零食一边打字。）
-          <br />
-          要找点什么喂食呢？
+          这么久以来习惯了一个人度过的周末，今天依旧要保持这个优秀的习惯，自己出门吗？
         </div>
         <div className="flex flex-col mt-10">
           {/* 选项 */}
@@ -58,11 +54,13 @@ const Question2 = ({ item }) => {
             text-gray-800 font-semibold py-2 px-4 border
             border-gray-400 rounded shadow mr-10`}
             onClick={() => {
-              updateData(prevFavor + 20, prevGloom - 10);
+              updateData(prevFavor + 50, prevGloom - 20);
               setAnswer(1);
+              setEnd(false);
+              console.log(favor, gloom);
             }}
           >
-            草莓蛋糕
+            带上心心和好吃的一起出门吧，她看起来好想出去玩。
           </button>
           <button
             className={`${
@@ -71,12 +69,12 @@ const Question2 = ({ item }) => {
             text-gray-800 font-semibold py-2 px-4 border
             border-gray-400 rounded shadow mr-10 mt-2`}
             onClick={() => {
-              updateData(prevFavor + 10, prevGloom);
+              updateData(prevFavor + 20, prevGloom);
               setAnswer(2);
-              console.log(favor, gloom);
+              setEnd(false);
             }}
           >
-            昨天吃剩的半块饼干
+            当然是自己出门了，心心活着就行。于是疯狂地在健身房比划了一天！
           </button>
           <button
             className={`${
@@ -85,11 +83,12 @@ const Question2 = ({ item }) => {
             text-gray-800 font-semibold py-2 px-4 border
             border-gray-400 rounded shadow mr-10 mt-2`}
             onClick={() => {
-              updateData(prevFavor - 20, prevGloom + 10);
+              updateData(prevFavor + 20, prevGloom + 20);
               setAnswer(3);
+              setEnd(false);
             }}
           >
-            TypeC充电线
+            躺在家和心心玩了一天的恐怖游戏，顺便把瑟瑟发抖的心心当抱枕。
           </button>
           <button
             className={`${
@@ -98,11 +97,26 @@ const Question2 = ({ item }) => {
             text-gray-800 font-semibold py-2 px-4 border
             border-gray-400 rounded shadow mr-10 mt-2`}
             onClick={() => {
-              updateData(prevFavor, prevGloom + 100);
+              updateData(prevFavor-20, prevGloom + 100);
               setAnswer(4);
+              setEnd(false);
             }}
           >
-            反正这玩意儿看起来傻得很，于是把自己的手指伸了进去。
+           把心心用链条拴着。不要打扰我写代码。
+          </button>
+          <button
+            className={`${
+              answer === 5 ? "bg-pink-300" : "bg-white"
+            }  hover:bg-gray-100
+            text-gray-800 font-semibold py-2 px-4 border
+            border-gray-400 rounded shadow mr-10 mt-2`}
+            onClick={() => {
+              updateData(prevFavor, prevGloom + 100);
+              setAnswer(5);
+              setEnd(true);
+            }}
+          >
+           建议不要选择这个选项，但如果真的很想，那么可以和心心在床上疯狂地度过一天。
           </button>
         </div>
         <button
@@ -111,7 +125,9 @@ const Question2 = ({ item }) => {
            hover:bg-pink-300 text-black font-bold py-2 px-4 
            rounded mt-6`}
           onClick={() => {
-            if (chosen === true) {
+            if (end === true) {
+              toEndC();
+            } else if (chosen === true) {
               nextPage();
             }
           }}
@@ -123,4 +139,4 @@ const Question2 = ({ item }) => {
   );
 };
 
-export default Question2;
+export default Question4;

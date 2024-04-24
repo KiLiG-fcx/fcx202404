@@ -26,7 +26,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<StartPage />}></Route>
+        <Route path="/fcx202404" element={<StartPage />}></Route>
         <Route path="/day1" element={<Question1 />}></Route>
         <Route path="/day2" element={<Question2 />}></Route>
         <Route path="/day3" element={<Question3 />}></Route>

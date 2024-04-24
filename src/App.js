@@ -24,7 +24,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/fcx202404">
       <Routes>
         <Route path="/" element={<StartPage />}></Route>
         <Route path="/day1" element={<Question1 />}></Route>
